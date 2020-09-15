@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <link rel="icon" href="/img/rock-on-icon.png" type="image/gif">
+    <link rel="stylesheet" href="/custom/MusicLibrary_style.scss">
+    <link rel="stylesheet" href="/material-icons/material-icons.css">
+    <link href="/googleFont.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="/jquery.min.js"></script>
+    <title>CUSTOM MP3</title>
+</head>
+<body>
+    <div id="modal" class="hide-modal">
+        <div class="modal-container card-img-overlay">
+            <div class="modal-card">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 modal-form">
+                        <form class="add-music-form" action="/save" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <div class="song-feaured-image">
+                                    <input style="display: none" type="file" accept="image/x-png,image/gif,image/jpeg" id="file" name="featured_img"  onchange="loadFile(event)" required>
+                                    <img id="output" class="image-preview" width="130" height="130" src="/img/rock-on.jpg" />
+                                    <label for="file" class="attach_file" style="cursor: pointer">
+                                    <i class="material-icons">attach_file</i></label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Title" id="title" name="title" required>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Band name" id="band_name" name="band_name" required>
+                            </div>
+
+                            <div class="form-group custom-file">
+                                <input type="file" accept=".mp3,audio/*" class="custom-file-input" id="customFile" name="audio" required>
+                                <label class="custom-file-label" for="customFile">Select audio file</label>
+                            </div>
+
+                            <div class="mt-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <a onclick="cancel()" class="btn btn-default">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="rock-on">
+                            <img src="/img/rock-on.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="custom-header">
+        <div class="header-icons">
+            <a onclick="openModal()" class="icon">
+                <img class="add_icon" src="/img/add.png" alt="Add music" width="32">
+            </a>
+            <a onclick="openModal()" class="icon">
+                <img class="add_icon trash-icon" src="/img/empty-trash.png" alt="Add music" width="35">
+            </a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+<% music.forEach(function(muzic){ %>
+    <div class="card-2">
+        <div class="card">
+            <img class="featured-image" src="/uploads/featured-img/<%= muzic.featured_img %>">
+            <div class="card-img-overlay">
+                <a class="select-play" id="toggleIcon-<%= muzic.id %>">
+                    <img class="select-play-btn" src="/img/select-play.png" id="play-pause-<%= muzic.id %>">
+                    <audio id="myAudio-<%= muzic.id %>" class="myMusic" src="/uploads/audio-file/<%= muzic.audio %>"></audio>
+                </a>
+            </div>
+        </div>
+    </div>
+<% }); %>
+            </div>
+        </div>
+    </div>
+    <script src="custom.js"></script>
+
+</body>
+</html>

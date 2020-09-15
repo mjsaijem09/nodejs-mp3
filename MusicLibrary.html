@@ -1,0 +1,126 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="assets/img/icons8-vegas-48.png" type="image/gif">
+        <link rel="stylesheet" href="assets/custom/MusicLibrary_style.css">
+        <link rel="stylesheet" href="assets/bootstrap.min.css">
+        <title>CUSTOM MP3</title>
+    </head>
+    <body>
+        <div class="custom-header">
+
+            <a href="" onclick="add_music()">
+                <img class="add_icon" src="assets/img/add.png" alt="Add music" width="32">
+            </a>
+            <a href="" onclick="add_music()">
+                <img class="add_icon trash-icon" src="assets/img/empty-trash.png" alt="Add music" width="35">
+            </a>
+            
+        </div>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card">
+                            <img class="featured-image" src="assets/img/secret-valentine.jpg" alt="">
+                            <div class="card-img-overlay" id="toggleIcon">
+                                <a onClick="togglePlay()" class="select-play">
+                                    <img class="select-play-btn" src="assets/img/select-play.png" id="play-pause" width="80">
+                                    <audio id="myAudio" src="assets/music/A1_-_Heaven_By_Your_Side_Audio[Youtubetomp3.sc].mp3"></audio>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card">
+                            <img class="featured-image" src="assets/img/only-one.jpg" alt="">
+                            <div class="card-img-overlay" id="toggleIcon">
+                                <a onClick="togglePlay()" class="select-play">
+                                    <img class="select-play-btn" src="assets/img/select-play.png" id="play-pause" width="80">
+                                    <audio id="myAudio" src="assets/music/A1_-_Heaven_By_Your_Side_Audio[Youtubetomp3.sc].mp3"></audio>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card">
+                            <img class="featured-image" src="assets/img/check-yes-juliet.jpg" alt="">
+                            <div class="card-img-overlay" id="toggleIcon">
+                                <a onClick="togglePlay()" class="select-play">
+                                    <img class="select-play-btn" src="assets/img/select-play.png" id="play-pause" width="80">
+                                    <audio id="myAudio" src="assets/music/A1_-_Heaven_By_Your_Side_Audio[Youtubetomp3.sc].mp3"></audio>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card">
+                            <img class="featured-image" src="assets/img/not-done-yet.jpg" alt="">
+                            <div class="card-img-overlay" id="toggleIcon">
+                                <a onClick="togglePlay()" class="select-play">
+                                    <img class="select-play-btn" src="assets/img/select-play.png" id="play-pause" width="80">
+                                    <audio id="myAudio" src="assets/music/A1_-_Heaven_By_Your_Side_Audio[Youtubetomp3.sc].mp3"></audio>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card">
+                            <img class="featured-image" src="assets/img/kapag-lasing-malambing.jpg" alt="">
+                            <div class="card-img-overlay" id="toggleIcon">
+                                <a onClick="togglePlay()" class="select-play">
+                                    <img class="select-play-btn" src="assets/img/select-play.png" id="play-pause" width="80">
+                                    <audio id="myAudio" src="assets/music/A1_-_Heaven_By_Your_Side_Audio[Youtubetomp3.sc].mp3"></audio>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card">
+                            <img class="featured-image" src="assets/img/secret-valentine.jpg" alt="">
+                            <div class="card-img-overlay" id="toggleIcon">
+                                <a onClick="togglePlay()" class="select-play">
+                                    <img class="select-play-btn" src="assets/img/select-play.png" id="play-pause" width="80">
+                                    <audio id="myAudio" src="assets/music/A1_-_Heaven_By_Your_Side_Audio[Youtubetomp3.sc].mp3"></audio>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+
+            function add_music(){
+                alert("I am an alert box!");
+            }
+
+            var myAudio = document.getElementById("myAudio");
+            var isPlaying = false;
+
+            function togglePlay() {
+                isPlaying ? myAudio.pause() : myAudio.play();
+
+                var img = document.getElementById('play-pause').src;
+                if (img.indexOf('select-play.png')!=-1) {
+                    document.getElementById('play-pause').src  = 'assets/img/pause-outline.png';
+                }
+                else {
+                document.getElementById('play-pause').src = 'assets/img/select-play.png';
+                }
+
+                var element = document.getElementById("toggleIcon");
+                element.classList.toggle("pause-style");
+            };
+
+            myAudio.onplaying = function() {
+                isPlaying = true;
+
+            };
+            myAudio.onpause = function() {
+                isPlaying = false;
+            };
+        </script>
+    </body>
+</html>

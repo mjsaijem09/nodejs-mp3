@@ -1,0 +1,44 @@
+html,
+body,
+div,
+canvas {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: black;
+  color: #97def0;
+  font-family: monospace;
+  text-align: center;
+  font-size: 150%;
+}
+
+a {
+  color: #97def0;
+}
+
+.container-fluid {
+  margin-top: 50px;
+}
+
+input {
+  background-color: #1f0f0f;
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  min-width:300px;
+  min-height:300px;
+}
+
+#scope {
+  flex: 1 1 auto;
+}
+@media (max-width: 750px) {
+  body {
+    font-size: 100%;
+  }
+}
