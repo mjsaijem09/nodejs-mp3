@@ -65,23 +65,22 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-<% music.forEach(function(muzic){ %>
-    <div class="card-2">
-        <div class="card">
-            <img class="featured-image" src="/uploads/featured-img/<%= muzic.featured_img %>">
-            <div class="card-img-overlay">
-                <a class="select-play" id="toggleIcon-<%= muzic.id %>">
-                    <img class="select-play-btn" src="/img/select-play.png" id="play-pause-<%= muzic.id %>">
-                    <audio id="myAudio-<%= muzic.id %>" class="myMusic" src="/uploads/audio-file/<%= muzic.audio %>"></audio>
-                </a>
+                <% music.forEach(function(muzic){ %>
+                    <div class="card-2">
+                        <div class="card">
+                            <img class="featured-image" src="/uploads/featured-img/<%= muzic.featured_img %>">
+                            <div class="card-img-overlay">
+                                <a class="select-play" id="toggleIcon-<%= muzic.id %>">
+                                    <img class="select-play-btn" src="/img/select-play.png" id="play-pause-<%= muzic.id %>">
+                                    <audio id="myAudio-<%= muzic.id %>" class="myMusic" src="/uploads/audio-file/<%= muzic.audio %>"></audio>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
             </div>
         </div>
     </div>
-<% }); %>
-            </div>
-        </div>
-    </div>
-    <script src="custom.js"></script>
-
+<script src="custom.js"></script>
 </body>
 </html>
