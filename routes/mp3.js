@@ -3,7 +3,6 @@ const path = require('path');
 const multer = require('multer');
 const router = express.Router();
 const Music = require('../models/mp3');
-const { json } = require('body-parser');
 
 // Upload storage location
 const storage = multer.diskStorage({
@@ -49,8 +48,8 @@ router.post('/', cpUpload, async (req, res) => {
 //get all data
 router.get('/', async (req, res) => {
     try {
-        const musics = await Music.find();
-        res.json(musics);
+        const music = await Music.find();
+        res.render('index', { music: music })
     } catch (error) {
         res.send('Error ' + error);
     }
