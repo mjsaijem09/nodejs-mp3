@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -8,14 +9,14 @@ require('dotenv/config');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// 
-app.set('views', __dirname + '/views');
+//set view engine
 app.set('view engine', 'ejs');
-app.use(express.static('assets'));
+app.set('views', path.join(__dirname, 'views'));
+//use public folder
+app.use(express.static(path.join(__dirname, '/assets')));
 
 // Routes
-const mp3Route = require('./views/index');
-const { urlencoded } = require('body-parser');
+const mp3Route = require('./routes/mp3')
 app.use('/', mp3Route);
 
 // Databse Connection
